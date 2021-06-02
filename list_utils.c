@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:43:00 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/05/29 16:45:36 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/02 14:09:20 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_stack	*new_node(int content)
 	if (new == NULL)
 		return (NULL);
 	new->num = content;
+	new->content = NULL;
 	new->next = NULL;
 	return (new);
 }

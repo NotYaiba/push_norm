@@ -49,10 +49,10 @@ all : $(NAME)
 
 
 $(NAME) : ${OBJS}
-		@gcc  ${OBJS} -g -o$(NAME) -g -fsanitize=address
+		@gcc  ${OBJS} -g -o$(NAME)
 		@rm -f ${OBJS} 
 bonus : ${OBJSB}
-		@gcc  ${OBJSB} -g -o$(NAMEB) -g -fsanitize=address
+		@gcc  ${OBJSB} -g -o$(NAMEB) -g 
 		@rm -f ${OBJSB} 
 # .c.o : ${SRCS}
 # 		@gcc  -c ${INCL} $< -o ${<:.c=.o}

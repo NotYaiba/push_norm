@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:39:56 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/05/30 19:49:31 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/02 15:11:13 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_data
 	int		index;
 	int		i;
 }				t_data;
-
+void	ft_lstclear(t_stack **lst);
 t_stack	*convert_input(int ac, char **av);
 void	init_struct3(t_data *data);
 void	init_struct2(t_data *data);
@@ -53,7 +53,7 @@ int		is_there(t_stack *stack, int min, int max);
 t_stack	*array_to_list2(char **array, int size);
 int		find_index_top_range(t_stack *stack, int min, int max);
 int		find_index_bot_range(t_stack *stack, int min, int max, int first);
-t_stack	*optimize(t_data *data);
+void	optimize(t_data *data);
 int		find_index_top(t_stack *stack, int max);
 int		find_index_bot(t_stack *stack, int max, int first);
 int		isdigit(int cc);

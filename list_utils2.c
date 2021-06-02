@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:43:48 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/05/30 16:19:55 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/02 17:27:34 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void	exec_inst(char *line, t_data *data)
 	else if (!strcmp(line, "pa"))
 		pa(data);
 	else if (!strcmp(line, "pb"))
+	{
+		printf("pb\n");
 		pb(data);
+		
+	}
 	else if (!strcmp(line, "ra"))
 		ra(data);
 	else if (!strcmp(line, "rb"))
@@ -93,17 +97,23 @@ t_stack	*copy_linkedlist(t_stack *stack)
 int	find_middle(t_stack *stack, t_data *data)
 {
 	t_stack	*tmp;
+	t_stack *first;
 	int		i;
 
 	tmp = copy_linkedlist(stack);
 	sort_linked(&tmp);
+	first = tmp;
 	i = 1;
 	while (tmp)
 	{
 		if (i == (stack_len(data->a) / 2))
+		{
+			ft_lstclear(&first);
 			return (tmp->num);
+		}
 		i++;
 		tmp = tmp->next;
-	}	
+	}
+	ft_lstclear(&first);
 	return (0);
 }

@@ -89,6 +89,7 @@ int	find_max(t_stack *stack)
 
 void	execute_ya(char *str, t_data *data)
 {
+	
 	addback(&data->cmds, new_node2(str));
 	exec_inst(str, data);
 }
