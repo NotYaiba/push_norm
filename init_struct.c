@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:04:45 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/05 13:23:51 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:55:51 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	*convert_input(int ac, char **av)
 	char		**tab;
 	t_stack		*tmp;
 	int			i;
-	
+
 	i = 0;
 	tab = NULL;
 	if (ac == 2)
@@ -39,7 +39,6 @@ t_stack	*convert_input(int ac, char **av)
 	}
 	else
 		tmp = array_to_list(av, ac);
-	
 	return (tmp);
 }
 
@@ -64,6 +63,7 @@ void	init_struct3(t_data *data)
 	data->b = NULL;
 	data->chunk = NULL;
 	data->chunkcopy = NULL;
+	data->p = NULL;
 }
 
 void	ft_lstclear(t_stack **lst)
@@ -71,6 +71,7 @@ void	ft_lstclear(t_stack **lst)
 	t_stack	*temp;
 
 	if (lst)
+	{
 		while (*lst)
 		{
 			temp = *lst;
@@ -81,5 +82,5 @@ void	ft_lstclear(t_stack **lst)
 			*lst = temp->next;
 			free(temp);
 		}
+	}	
 }
-

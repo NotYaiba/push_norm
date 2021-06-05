@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:39:56 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/05 20:16:55 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:57:18 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data
 	t_stack	*b;
 	t_stack	*cmds;
 	t_stack	*chunk;
+	t_stack	*p;
 	t_stack	*chunkcopy;
 	int		rmin;
 	int		rmax;
@@ -41,6 +42,9 @@ typedef struct s_data
 	int		i;
 }				t_data;
 
+void	clear_struct(t_data *data);
+void	remove_leaks(t_data *data);
+void	sort_five(t_data *data);
 int		check_str(char *str);
 void	ft_lstclear(t_stack **lst);
 t_stack	*convert_input(int ac, char **av);

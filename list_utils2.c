@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:43:48 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/05 15:09:33 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:34:58 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_stack	*copy_linkedlist(t_stack *stack)
 int	find_middle(t_stack *stack, t_data *data)
 {
 	t_stack	*tmp;
-	t_stack *first;
+	t_stack	*first;
 	int		i;
 	int		val;
 
@@ -103,7 +103,7 @@ int	find_middle(t_stack *stack, t_data *data)
 	i = 1;
 	while (tmp)
 	{
-		if (i == ((stack_len(data->a) / 2) + 1) )
+		if (i == ((stack_len(data->a) / 2) + 1))
 		{
 			val = tmp->num;
 			ft_lstclear(&first);

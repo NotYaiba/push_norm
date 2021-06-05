@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 16:21:05 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/05 20:17:59 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:57:00 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,57 +34,45 @@ int	main (int ac, char **av)
 	else if (stack_len(data->a) == 4)
 		sort_four(data);
 	else if (stack_len(data->a) == 5)
-	{
-		push_half( 2 , data);
-		sort_three(data->a, data);
-		if (is_sorted(data->b) == 1)
-			execute_ya("sb", data);
-		execute_ya("pa", data);
-		execute_ya("pa", data);
-	}
+		sort_five(data);
 	else if (stack_len(data->a) <= 100)
 		sort_more(data);
 	else
 		find_chunk(data);
 	optimize(data);
-	ft_lstclear(&(data->a));
-	data->a = NULL;
-	ft_lstclear(&(data->b));
-	ft_lstclear(&(data->chunk));
-	ft_lstclear(&(data->chunkcopy));
-	data->b = NULL;
-	free(data);
+}
+
+void	clear_struct(t_data *data)
+{
+	print_list2(data->p);
+	ft_lstclear(&data->p);
+	ft_lstclear(&(data->cmds));
 }
 
 void	optimize(t_data *data)
 {
-	t_stack	*tmp;
 	t_stack	*tmp2;
 
-	tmp = NULL;
 	tmp2 = data->cmds;
 	while (tmp2)
 	{
 		if ((tmp2)->next && ((!strcmp((tmp2)->content, "ra") && \
-		!strcmp((tmp2)->next->content, "rb")) || \
-		(!strcmp((tmp2)->content, "rb") && \
-		!strcmp((tmp2)->next->content, "ra"))))
+		!strcmp((tmp2)->next->content, "rb")) || (!strcmp((tmp2) \
+		->content, "rb") && !strcmp((tmp2)->next->content, "ra"))))
 		{
-			addback(&tmp, new_node2("rr"));
+			addback(&data->p, new_node2("rr"));
 			(tmp2) = (tmp2)->next;
 		}
 		else if ((tmp2)->next && ((!strcmp((tmp2)->content, "rra") \
 		&& !strcmp((tmp2)->next->content, "rrb")) || (!strcmp((tmp2) \
 		->content, "rrb") && !strcmp((tmp2)->next->content, "rra"))))
 		{
-			addback(&tmp, new_node2("rrr"));
+			addback(&data->p, new_node2("rrr"));
 			(tmp2) = (tmp2)->next;
 		}
 		else
-			addback(&tmp, new_node2((tmp2)->content));
+			addback(&data->p, new_node2((tmp2)->content));
 		(tmp2) = (tmp2)->next;
 	}
-	print_list2(tmp);
-	ft_lstclear(&tmp);
-	ft_lstclear(&(data->cmds));
+	clear_struct(data);
 }

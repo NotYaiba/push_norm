@@ -21,14 +21,13 @@ int	check_errors(char **av, int size)
 	{
 		if (check_str(av[i]) == 0)
 		{
-			printf("Error\n");
+			printf("Error %s\n", av[i]);
 			return (0);
 		}
 		i++;
 	}
 	return (1);
 }
-
 
 int	find_max_val(t_stack *stack)
 {
@@ -90,7 +89,6 @@ int	find_max(t_stack *stack)
 
 void	execute_ya(char *str, t_data *data)
 {
-	
 	addback(&data->cmds, new_node2(str));
 	exec_inst(str, data);
 }

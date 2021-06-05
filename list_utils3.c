@@ -6,13 +6,13 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:45:41 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/02 15:48:07 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:36:05 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sstrlen(char *str)
+int	ft_sstrlen(char *str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int		ft_sstrlen(char *str)
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -46,7 +46,7 @@ char	*ft_strdup(const char *ssrc)
 
 	src = (char *)ssrc;
 	s = ft_sstrlen(src);
-	c = (char*)malloc((s + 1) * sizeof(char));
+	c = (char *)malloc((s + 1) * sizeof(char));
 	if (c == NULL)
 		return (NULL);
 	ft_strcpy(c, src);
