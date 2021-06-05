@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:39:56 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/02 15:11:13 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:16:55 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_data
 	int		index;
 	int		i;
 }				t_data;
+
+int		check_str(char *str);
 void	ft_lstclear(t_stack **lst);
 t_stack	*convert_input(int ac, char **av);
 void	init_struct3(t_data *data);

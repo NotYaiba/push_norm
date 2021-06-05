@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:04:45 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/02 17:34:03 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 13:23:51 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ int	is_there(t_stack *stack, int min, int max)
 	t_stack	*tmp;
 
 	tmp = stack;
-	print_list(stack);
-	printf("min = %d\n", min);
-	printf("max = %d\n", max);
-
 	while (tmp)
 	{
 		if (tmp->num <= max && tmp->num >= min)

@@ -19,7 +19,7 @@ int	check_errors(char **av, int size)
 	i = 1;
 	while (i < size)
 	{
-		if (isdigit((int)av[i][0]) == 0)
+		if (check_str(av[i]) == 0)
 		{
 			printf("Error\n");
 			return (0);
@@ -28,6 +28,7 @@ int	check_errors(char **av, int size)
 	}
 	return (1);
 }
+
 
 int	find_max_val(t_stack *stack)
 {

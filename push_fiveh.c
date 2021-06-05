@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:04:54 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/02 17:35:33 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 18:40:48 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,15 @@ void	find_chunk(t_data *data)
 	int		len;
 
 	cnt = 0;
-	plus = stack_len(data->a) / 15;
-	pri
 	min = find_min_val(data->a);
+	plus = stack_len(data->a) / 15;
 	max = min + plus;
 	len = stack_len(data->a);
-	
 	while (data->a)
 	{
-		printf("==>%d", is_there(data->a, min, max));
-		break;
 		while (is_there(data->a, min, max) == 1)
 		{
 			move_chunk(min, max, data);
-			printf("pp\n");
 			execute_ya("pb", data);
 			cnt++;
 		}
@@ -95,7 +90,7 @@ void	find_chunk(t_data *data)
 		min += plus;
 		max += plus;
 	}
-	move_all_to(data);
+	// move_all_to(data);
 }
 
 int	find_index_top_range(t_stack *stack, int min, int max)

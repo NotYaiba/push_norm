@@ -17,6 +17,7 @@ SRCS = push_swap.c\
 		comds2.c\
 		comds3.c\
 		init_struct.c\
+		helpers4.c\
 
 SRCSB = checker.c\
 		comds.c\
@@ -33,6 +34,8 @@ SRCSB = checker.c\
 		list_utils3.c\
 		list_utils2.c\
 		init_struct.c\
+		helpers4.c\
+
 
 		
 INCL = -INCLUDES/

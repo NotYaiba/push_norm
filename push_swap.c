@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 16:21:05 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/06/02 17:26:15 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 20:17:59 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,36 @@ int	main (int ac, char **av)
 
 	data = malloc(sizeof(t_data));
 	init_struct3(data);
+	if (check_errors(av, ac) == 0)
+		return (0);
 	data->a = convert_input(ac, av);
-	// if (check_errors(av, ac) == 0)
-	// 	return (0);
-	// if (is_sorted(data->a))
-	// 	return (0);
-
-	// if (stack_len(data->a) == 3)
-	// 	sort_three(data->a, data);
-	// else if (stack_len(data->a) == 4)
-	// 	sort_four(data);
-	// else if (stack_len(data->a) <= 100)
-	// 	sort_more(data);
-	// else
+	if (is_sorted(data->a))
+		return (0);
+	if (stack_len(data->a) == 3)
+		sort_three(data->a, data);
+	else if (stack_len(data->a) == 4)
+		sort_four(data);
+	else if (stack_len(data->a) == 5)
+	{
+		push_half( 2 , data);
+		sort_three(data->a, data);
+		if (is_sorted(data->b) == 1)
+			execute_ya("sb", data);
+		execute_ya("pa", data);
+		execute_ya("pa", data);
+	}
+	else if (stack_len(data->a) <= 100)
+		sort_more(data);
+	else
 		find_chunk(data);
-	// optimize(data);
-	// ft_lstclear(&(data->a));
-	// data->a = NULL;
-	// ft_lstclear(&(data->b));
-	// ft_lstclear(&(data->chunk));
-	// ft_lstclear(&(data->chunkcopy));
-	// data->b = NULL;
-	// free(data);
+	optimize(data);
+	ft_lstclear(&(data->a));
+	data->a = NULL;
+	ft_lstclear(&(data->b));
+	ft_lstclear(&(data->chunk));
+	ft_lstclear(&(data->chunkcopy));
+	data->b = NULL;
+	free(data);
 }
 
 void	optimize(t_data *data)

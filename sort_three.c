@@ -6,7 +6,7 @@
 /*   By: melkarmi <melkarmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 17:57:51 by melkarmi          #+#    #+#             */
-/*   Updated: 2021/05/30 17:57:55 by melkarmi         ###   ########.fr       */
+/*   Updated: 2021/06/05 18:54:21 by melkarmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	sort_three(t_stack *stack, t_data *data)
 {
 	t_stack	*f;
 	t_stack	*tt;
-
+	if (is_sorted(data->a) == 1)
+		return ;
 	f = stack;
 	tt = f->next;
 	if (f->num > tt->num && tt->num < tt->next->num && f->num < tt->next->num)
@@ -34,21 +35,22 @@ void	sort_three(t_stack *stack, t_data *data)
 
 void	case1(t_data *data)
 {
-	addback(&(data->cmds), new_node2("sa"));
+	execute_ya("sa", data);
 }
 
 void	case3(t_data *data)
 {
-	addback(&(data->cmds), new_node2("ra"));
+	execute_ya("ra", data);
 }
 
 void	case2(t_data *data)
 {
-	addback(&(data->cmds), new_node2("sa"));
-	addback(&(data->cmds), new_node2("rra"));
+	execute_ya("sa", data);
+	execute_ya("rra", data);
+
 }
 
 void	case5(t_data *data)
 {
-	addback(&(data->cmds), new_node2("rra"));
+	execute_ya("rra", data);
 }
